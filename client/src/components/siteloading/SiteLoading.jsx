@@ -8,7 +8,7 @@ class SiteLoading extends Component {
         return (
             <div className="overlay" align="center">
 		{/*<h1 className="txt-main">තුරු</h1>*/}
-                <img className="logo" id="loading" src={require('./Loading.gif')} alt="inner" />
+                <img className="logo" id="loading" src={require('./Spinner-1s-200px.gif')} alt="inner" />
                 <h1 className="txt-main">Loading...</h1>
             </div>
         );

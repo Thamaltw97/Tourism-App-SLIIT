@@ -27,13 +27,13 @@ class MyPackages extends Component{
         };
     }
 
+    //Get packages user wise
     componentDidMount() {
         this.setState({isLoading: true});
         Axios.get('http://localhost:5000/api/packages/packagebyuser/' + localStorage.getItem('user-id'))
             .then(response => {
                 this.setState({packages: response.data.package,
                                     isLoading: false});
-                //console.log(this.state.packages)
             })
             .catch(function (err) {
                 console.log(err);

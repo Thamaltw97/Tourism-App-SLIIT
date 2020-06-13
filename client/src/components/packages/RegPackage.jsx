@@ -40,6 +40,7 @@ function RegPackage(props) {
     };
 
 
+    //Register to a package
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -56,7 +57,6 @@ function RegPackage(props) {
             remarks: RemarksValue,
             packUserId: localStorage.getItem('user-id')
         };
-        //console.log(packObj)
         Axios.post('http://localhost:5000/api/packages/add', packObj)
             .then(res => {
                 alert(res.data);

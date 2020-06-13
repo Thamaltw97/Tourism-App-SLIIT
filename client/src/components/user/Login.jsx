@@ -16,6 +16,7 @@ function Login(props) {
         setPasswordValue(e.currentTarget.value);
     };
 
+    //onSubmit event for login user
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -28,7 +29,6 @@ function Login(props) {
         if (!(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(EmailValue))){
             return alert('Please Check you Email Address');
         }
-
 
         const userObj = {
             email: EmailValue,
@@ -74,14 +74,12 @@ function Login(props) {
 
 
 
-                            <label className='lable-form'>Your Email : </label>
                             <input id="email" type="text" className="form-control"
                                    maxLength="50"
                                    placeholder="Enter your Email"
                                    onChange={onEmailChange}
                                    value={EmailValue} />
-                            <br/>
-                            <label className='lable-form'>Password : </label>
+                            <br/><br />
                             <input id="password" type="password" className="form-control"
                                    maxLength="20"
                                    placeholder="Enter Password"
@@ -100,9 +98,13 @@ function Login(props) {
                                 </div>
                             </div>
                             <br/>
-                            <div className="div-p1">
-                                <p className="col-md-8">Not Registered?<a href="/register">Register</a></p>
+                            <div className="row">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
+                                    <p className="">Not Registered?<a href="/register"> Click here</a> to register.</p>
+                                </div>
                             </div>
+
 
                         </div>
                     </div>

@@ -64,13 +64,12 @@ class UpdateMyPackage extends Component{
         });
     }
 
-
+    //Update specific registered package
     onUpdate(e) {
         e.preventDefault();
         this.setState({
             isLoading: true
         });
-        console.log(this.state.noOfDays);
         const obj = {
             noOfDays: this.state.noOfDays,
             noOfPeople: this.state.noOfPeople,
@@ -90,9 +89,10 @@ class UpdateMyPackage extends Component{
                     isLoading: false
                 });
             });
-
     }
 
+
+    //Delete specific registered package
     onDelete(e) {
         e.preventDefault();
         this.setState({
@@ -112,7 +112,6 @@ class UpdateMyPackage extends Component{
                     isLoading: false
                 });
             });
-
     }
 
 

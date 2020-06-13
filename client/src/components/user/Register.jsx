@@ -40,10 +40,9 @@ function Register(props) {
 
 
 
-
+    //onSubmit event for user registration
     const onSubmit = async (e) => {
         e.preventDefault();
-
         setIsLoading(true);
 
         if (!NameValue || !EmailValue || !PasswordValue || !PasswordCheckValue || !MobileValue || !CountryValue) {
@@ -59,7 +58,6 @@ function Register(props) {
         if (!(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(EmailValue))){
             return alert('Please Check you Email Address !');
         }
-
 
         const userObj = {
             name: NameValue,
@@ -98,23 +96,20 @@ function Register(props) {
                         <div className="col-md-2"/>
                         <div className="col-md-8">
                             <h2 className="text-capitalize text-center mt-3 mb-2">Register</h2>
-                            <br/>
+                            <br/><br />
 
-                            <label style={{ textAlign: 'left' }}>Your Name : </label>
                             <input id="displayName" type="text" className="form-control text-capitalize"
                                    maxLength="30"
                                    placeholder="Enter your Name"
                                    onChange={onNameChange}
                                    value={NameValue} />
                             <br />
-                            <label>Your Email : </label>
-                            <input id="email" type="email" className="form-control "
+                            <input id="email" type="email" className="form-control"
                                    maxLength="50"
                                    placeholder="Enter your Email"
                                    onChange={onEmailChange}
                                    value={EmailValue} />
                             <br/>
-                            <label>Password : </label>
                             <input id="password" type="password" className="form-control "
                                    maxLength="20"
                                    placeholder="Enter Password"
@@ -122,21 +117,18 @@ function Register(props) {
                                    value={PasswordValue} />
                             <br />
 
-                            <label>Confirm Password : </label>
                             <input id="passwordCheck" type="password" className="form-control "
                                    maxLength="20"
                                    placeholder="Re-Enter Password"
                                    onChange={onPasswordCheckChange}
                                    value={PasswordCheckValue} />
                             <br />
-                            <label className="label-form">Mobile No. : </label>
                             <input id="displayName" type="number" className="form-control text-capitalize"
                                    maxLength="10"
                                    placeholder="Enter mobile number"
                                    onChange={onMobileChange}
                                    value={MobileValue} />
                             <br />
-                            <label>Country : </label>
                             <input id="displayName" type="text" className="form-control text-capitalize"
                                    maxLength="30"
                                    placeholder="Enter country"

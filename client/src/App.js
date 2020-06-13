@@ -9,6 +9,7 @@ import Login from "./components/user/Login";
 import MyPackages from "./components/packages/MyPackages";
 import RegPackage from "./components/packages/RegPackage";
 import UpdateMyPackage from "./components/packages/UpdateMyPackage";
+import FooterHandler from "./components/shared/Footer";
 
 function App(props) {
 
@@ -58,6 +59,9 @@ function App(props) {
                 </Switch>
               </div>
             </Router>
+            <div>
+              <FooterHandler/>
+            </div>
           </div>
       )}
 
