@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import SiteLoading from "../siteloading/SiteLoading";
 
 function Register(props) {
 
@@ -10,6 +11,7 @@ function Register(props) {
     const [PasswordCheckValue, setPasswordCheckValue] = useState("");
     const [MobileValue, setMobileValue] = useState("");
     const [CountryValue, setCountryValue] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const onNameChange = (e) => {
@@ -42,6 +44,8 @@ function Register(props) {
     const onSubmit = async (e) => {
         e.preventDefault();
 
+        setIsLoading(true);
+
         if (!NameValue || !EmailValue || !PasswordValue || !PasswordCheckValue || !MobileValue || !CountryValue) {
             return alert('Fill all the fields first !');
         }
@@ -72,11 +76,13 @@ function Register(props) {
                 // alert(res.data.msg);
                 alert("Successfully Registered!");
                 props.history.push('/login');
+                setIsLoading(false);
                 //console.log(res.data)
             })
             .catch(err => {
                 // alert('Error from client: ' + err);
                 alert("Sorry!, Please check your inserted data... TRY AGAIN!");
+                setIsLoading(false);
             });
 
     };
@@ -84,6 +90,7 @@ function Register(props) {
 
     return(
         <div className="container pt-3 mt-3 mb-5 " >
+            {isLoading && <SiteLoading />}
             <div className="card card-body my-0 bg-light">
                 <form onSubmit={onSubmit}>
 

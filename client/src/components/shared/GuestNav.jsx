@@ -8,7 +8,7 @@ class Navigation extends Component{
         return(
 
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <span className="navbar-brand mb-0 h1">Travel SriLanka </span>
+                <span className="navbar-brand mb-0 h1">Tourism Expert </span>
                 <ul className="navbar-nav my-2 my-lg-0 ml-auto">
                     <li className="nav-item">
                         <Link className="nav-link" to="/register">
@@ -22,7 +22,7 @@ class Navigation extends Component{
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0 ml-5">
-                    <a href="https://github.com/Thamaltw97/Online-Shopping-Cart-System-SLIIT"><h3><span className="fa fa-github"></span></h3></a>
+                    <a href="https://github.com/Thamaltw97/Tourism-App-SLIIT"><h3><span className="fa fa-github"></span></h3></a>
                 </form>
             </nav>
 

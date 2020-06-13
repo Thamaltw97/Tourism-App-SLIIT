@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Axios from "axios";
 import '../../index.css';
+import SiteLoading from "../siteloading/SiteLoading";
 
 
 const Packages = [
@@ -18,6 +19,7 @@ function RegPackage(props) {
     const [NoOfDaysValue, setNoOfDaysValue] = useState();
     const [NoOfPeopleValue, setNoOfPeopleValue] = useState();
     const [RemarksValue, setRemarksValue] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const onNameChange = (e) => {
@@ -41,6 +43,8 @@ function RegPackage(props) {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        setIsLoading(true);
+
         if(!NoOfDaysValue || !NoOfPeopleValue || !RemarksValue) {
             return alert('Fill all the fields first !');
         }
@@ -52,20 +56,23 @@ function RegPackage(props) {
             remarks: RemarksValue,
             packUserId: localStorage.getItem('user-id')
         };
-        console.log(packObj)
+        //console.log(packObj)
         Axios.post('http://localhost:5000/api/packages/add', packObj)
             .then(res => {
                 alert(res.data);
                 props.history.push('/mypackages');
+                setIsLoading(false);
             })
             .catch(err => {
                 alert('Error from client: ' + err);
+                setIsLoading(false);
             });
 
     };
 
     return(
         <div className="container pt-3 mt-3 mb-5 " >
+            {isLoading && <SiteLoading />}
             <div className="card card-body my-0 bg-light">
                 <form onSubmit={onSubmit}>
 

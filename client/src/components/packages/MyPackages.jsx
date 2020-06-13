@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import SiteLoading from "../siteloading/SiteLoading";
 //import './StylesProduct.css';
 import '../../index.css';
 
@@ -22,30 +23,23 @@ class MyPackages extends Component{
         super(props);
         this.state = {
             packages: [],
+            isLoading: false
         };
     }
 
     componentDidMount() {
+        this.setState({isLoading: true});
         Axios.get('http://localhost:5000/api/packages/packagebyuser/' + localStorage.getItem('user-id'))
             .then(response => {
-                this.setState({packages: response.data.package});
+                this.setState({packages: response.data.package,
+                                    isLoading: false});
                 //console.log(this.state.packages)
             })
             .catch(function (err) {
                 console.log(err);
+                this.setState({isLoading: false});
             })
     }
-
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     Axios.get('http://localhost:5000/api/packages/packagebyuser/' + localStorage.getItem('user-id'))
-    //         .then(response => {
-    //             this.setState({packages: response.data.package});
-    //             console.log(this.state.packages)
-    //         })
-    //         .catch(function (err) {
-    //             console.log(err);
-    //         })
-    // }
 
     packageList() {
         return this.state.packages.map(function(currentPackage, index){
@@ -60,6 +54,9 @@ class MyPackages extends Component{
 
     render() {
 
+        if (this.state.isLoading) {
+            return <SiteLoading />
+        }
 
         return (
             <>

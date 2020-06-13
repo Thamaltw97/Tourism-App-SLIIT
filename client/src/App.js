@@ -8,6 +8,7 @@ import Register from "./components/user/Register";
 import Login from "./components/user/Login";
 import MyPackages from "./components/packages/MyPackages";
 import RegPackage from "./components/packages/RegPackage";
+import UpdateMyPackage from "./components/packages/UpdateMyPackage";
 
 function App(props) {
 
@@ -53,6 +54,7 @@ function App(props) {
                   <Route path="/login" component={Login} />
                   <Route path="/mypackages" component= {MyPackages} />
                   <Route path="/package/upload" component= {RegPackage} />
+                  <Route path="/package/edit/:id" component= {UpdateMyPackage} />
                 </Switch>
               </div>
             </Router>

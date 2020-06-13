@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import Axios from "axios";
+import SiteLoading from "../siteloading/SiteLoading";
 
 function Login(props) {
 
     const [EmailValue, setEmailValue] = useState("");
     const [PasswordValue, setPasswordValue] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const onEmailChange = (e) => {
         setEmailValue(e.currentTarget.value);
@@ -17,7 +19,7 @@ function Login(props) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-
+        setIsLoading(true);
 
         if(!EmailValue || !PasswordValue) {
             return alert('Fill all the fields first !');
@@ -41,6 +43,7 @@ function Login(props) {
                 localStorage.setItem('user-role', res.data.user.userRole);
                 alert("Successfully Logged in");
                 props.history.push('/home');
+                setIsLoading(false);
 
             })
             .catch(err => {
@@ -51,11 +54,16 @@ function Login(props) {
     };
 
 
+
     //render() {
     return (
+
+
+
         <div className="container pt-3 mt-3 mb-5 " >
+            {isLoading && <SiteLoading />}
             <div className="card card-body my-0 bg-light">
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit} className="login">
 
                     <div className="row div-login">
                         <div className="col-md-2"/>
