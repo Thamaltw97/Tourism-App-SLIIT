@@ -40,6 +40,7 @@ function Login(props) {
             .then(res => {
                 localStorage.setItem('auth-token', res.data.token);
                 localStorage.setItem('user-id', res.data.user.id);
+                localStorage.setItem('user-name', res.data.user.name);
                 localStorage.setItem('user-role', res.data.user.userRole);
                 alert("Successfully Logged in");
                 props.history.push('/home');

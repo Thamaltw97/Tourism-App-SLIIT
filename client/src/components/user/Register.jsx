@@ -46,17 +46,28 @@ function Register(props) {
         setIsLoading(true);
 
         if (!NameValue || !EmailValue || !PasswordValue || !PasswordCheckValue || !MobileValue || !CountryValue) {
+            setIsLoading(false);
             return alert('Fill all the fields first !');
         }
 
-        if (PasswordValue.length < 5)
+        if (PasswordValue.length < 5) {
+            setIsLoading(false);
             return alert('Password needs to be at least 5 character long');
+        }
 
-        if (PasswordValue !== PasswordCheckValue)
+        if (PasswordValue !== PasswordCheckValue) {
+            setIsLoading(false);
             return alert('Please Check your password');
+        }
 
         if (!(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(EmailValue))){
+            setIsLoading(false);
             return alert('Please Check you Email Address !');
+        }
+
+        if (MobileValue.length > 10) {
+            setIsLoading(false);
+            return alert('Mobile number should be 10 digits');
         }
 
         const userObj = {

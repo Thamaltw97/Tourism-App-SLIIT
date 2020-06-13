@@ -11,13 +11,14 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            content: []
+            content: [],
+            name: localStorage.getItem('user-name')
         };
 
     }
 
     render() {
-
+    console.log(this.state.name)
         return (
 
             <div id="packages">

@@ -11,11 +11,6 @@ class Navigation extends Component{
                 <span className="navbar-brand mb-0 h1">Tourism Expert </span>
                 <ul className="navbar-nav my-2 my-lg-0 ml-auto">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/home">
-                            Home
-                        </Link>
-                    </li>
-                    <li className="nav-item">
                         <Link className="nav-link" to="/register">
                             SignUp
                         </Link>
