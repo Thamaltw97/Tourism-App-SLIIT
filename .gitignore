@@ -1,0 +1,13 @@
+#.idea
+/client/.idea
+/server/.idea
+#.idea
+
+# node modules
+/server/node_modules
+/client/.idea
+#node_modules
+
+#.env file
+/server/.env
+
